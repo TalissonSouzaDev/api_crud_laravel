@@ -1,0 +1,37 @@
+POST http://localhost:8000/api/ersistemas/create
+Content-Type: application/json
+
+{
+    "name": "teste2",
+    "phone": "(71) 98852-9863",
+    "phone2": "",
+    "cpf": "03770139518",
+    "cep": "40020-210",
+    "opcao": "FACEBOOK"
+}
+
+###
+GET http://localhost:8000/api/ersistemas/6 HTTP/1.1
+Content-Type: application/json
+
+###
+PUT http://localhost:8000/api/ersistemas/update/6 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "teste9",
+    "phone": "(71) 98852-9863",
+    "phone2": "(71) 98852-9999",
+    "cpf": 03770139518,
+    "cep" : 40020-210,
+    "opcao":"FACEBOOK"
+}
+
+###
+DELETE  http://localhost:8000/ersistemas/destroy/1 HTTP/1.1
+Content-Type: application/json
+
+// teste viacep
+###
+GET http://localhost:8000/api/ersistemas/viacep/40020-210 HTTP/1.1
+Content-Type: application/json
