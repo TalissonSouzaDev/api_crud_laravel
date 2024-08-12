@@ -9,7 +9,9 @@
 	</div>
 </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="{{asset('js/global.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-mask-plugin@1.14.16/dist/jquery.mask.min.js"></script>
+
+    {{-- <script src="{{asset('js/global.min.js')}}"></script> --}}
 	<script src="{{asset('js/bootstrap-select.min.js')}}"></script>
     <script src="{{asset('js/select2.full.min.js')}}"></script>
     <script src="{{asset('js/plugins-init/select2-init.js')}}"></script>
@@ -27,13 +29,4 @@
     <script src="{{asset('js/custom.js')}}"></script>
 	<script src="{{asset('js/deznav-init.js')}}"></script>
     {{-- <script src="{{asset('')}}js/scripts/.js"></script> --}}
-
-    <script>
-
-$(document).ready(function() {
-    $('#whatsapp').mask('(00) 0000-0000');
-})
-        // Aplica a máscara ao campo de entrada
-
-    </script>
 </html>

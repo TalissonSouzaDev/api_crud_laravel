@@ -14,9 +14,24 @@
             <li class="breadcrumb-item active"><a href="{{route('home')}}">CRUD Padrão</a></li>
         </ol>
 
-        <span><strong>Dark Mode</strong>
-            <input type="checkbox" id="dark-mode-element">
-        </span>
+        <div class="darkmode">
+            <strong>Dark Mode</strong>
+            <i class="fa-solid fa-toggle-off" id="darkmodebuttonoff"></i>
+            <i class="fa-solid fa-toggle-on" id="darkmodebuttonon"></i>
+        </div>
+    </div>
+
+    <div class="container-fluid mode">
+        <div class="col-xl-12 col-lg-12 bst-seller">
+            <div class="card h-auto">
+                <div class="card-body mode">
+
+
+
+        </div>
+            </div>
+               </div>
+
     </div>
     <div class="container-fluid mode">
         <div class="row">
@@ -31,6 +46,7 @@
                     <div class="card-body mode">
                         <!-- Formulário de cadastro/edição -->
                         <form action="" id="form">
+                            @csrf
                             <div class="row">
                                 <input type="hidden" id="id">
                                 <div class="col-sm-6 m-b30">
@@ -58,8 +74,8 @@
                                     <label class="form-label required">Como ficou sabendo da empresa?</label>
                                     <select class="form-control form-select" name="opcao" id="opcao" data-live-search="true" required>
                                         <option value="">Selecione</option>
-                                        <option value="teste">1</option>
-                                        <option value="2">2</option>
+                                        <option value="Instagram">Instagram</option>
+                                        <option value="Facebook">Facebook</option>
                                     </select>
                                 </div>
                             </div>
@@ -125,3 +141,11 @@
     </div>
 </div>
 @component("components.footer")  @endcomponent
+
+<script>
+     $(document).ready(function(){
+         $('#whatsapp').mask('(00) 00000-0000');
+         $('#telefone').mask('(00) 00000-0000');
+         $('#cpf').mask('000.000.000-00');
+       });
+</script>

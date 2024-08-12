@@ -65,15 +65,15 @@
 @import url("./../icons/material-design-iconic-font/css/materialdesignicons.min.css");
 @import url("./../icons/themify-icons/css/themify-icons.css");
 @import url("./../icons/line-awesome/css/line-awesome.min.css");
-@import url("./../icons/avasta/css/style.css");
+/* @import url("./../icons/avasta/css/style.css"); */
 @import url("./../icons/flaticon/flaticon.css");
 @import url("./../icons/flaticon_1/flaticon_1.css");
 @import url("./../icons/icomoon/icomoon.css");
-@import url("./../icons/bootstrap-icons/font/bootstrap-icons.css");
-@import url(./../vendor/animate/animate.min.css);
+/* @import url("./../icons/bootstrap-icons/font/bootstrap-icons.css"); */
+/* @import url(./../vendor/animate/animate.min.css);
 @import url(./../vendor/aos/css/aos.min.css);
 @import url(./../vendor/perfect-scrollbar/css/perfect-scrollbar.css);
-@import url(./../vendor/metismenu/css/metisMenu.min.css);
+@import url(./../vendor/metismenu/css/metisMenu.min.css); */
 
 .totals {
   display: flex;
@@ -13916,6 +13916,12 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
         color: white;
 
     }
+#darkmodebuttonon,#darkmodebuttonoff{
+    cursor: pointer;
+}
+.darkmode > svg {
+    width: 300px;
+}
 .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
 .toggle.ios .toggle-handle { border-radius: 20px; }
 .deznav {

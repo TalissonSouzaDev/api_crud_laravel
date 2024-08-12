@@ -3,10 +3,13 @@ $(document).ready(function() {
     // Esconde os botões edit e delete
     $('#btn-submit-edit').hide();
     $('#btn-delete').hide();
-    // exibir mensagem depois da pagina carregada
-    Message()
 
-    $('input[name="customCheckBoxname"]').on('change', function() {
+    // ESCONDENDO BUTTON DARKMODE ON
+    $(".fa-toggle-on").hide();
+    // exibir mensagem depois da pagina carregada
+
+// AÇÃO PARA O BOTÃO DE CHECKBOX
+$('input[name="customCheckBoxname"]').on('change', function() {
                 if (this.checked) {
                     // Desmarque todos os outros checkboxes
                     $('input[name="customCheckBoxname"]').not(this).prop('checked', false);
@@ -18,10 +21,11 @@ $(document).ready(function() {
                     $('#btn-submit').hide();
                     $('#btn-submit-edit').show();
                     $('#btn-delete').show();
-                    console.log('Valor do checkbox selecionado:', id,url);
                 }
             });
 });
+
+// AÇÃO PARA BOTÕES CRIAR,EDITA E EXCLUIR
 
 $("#btn-submit").on("click",function(e) {
     e.preventDefault();
@@ -60,19 +64,27 @@ $("#btn-delete").on("click",function(e) {
     GETANDDELETE_AJAX(url,"DELETE")
 })
 
-$("#dark-mode-element").on("click",function(e){
+// DARKMODE
+
+$("#darkmodebuttonoff").on("click",function(e){
     e.preventDefault();
-    console.log(true)
-     if(this.checked) {
+        $(".fa-toggle-on").show();
+        $(".fa-toggle-off").hide();
         $('.mode').attr('id', 'dark-mode');
-    }
 })
 
-function Message() {
-    var msg = localStorage.getItem("message");
-    if(msg != "") {
-        //toastr.success(msg);
-        //storage.clear();
+$("#darkmodebuttonon").on("click",function(e){
+    e.preventDefault();
+        $(".fa-toggle-on").hide();
+        $(".fa-toggle-off").show();
+        $('.mode').removeAttr('id');
+})
+
+// MESSAGE TOAST
+
+function Message(msg,type) {
+    if(type =="success") {
+        toastr.success(msg);
     }
 }
 function POSTANDPUT_AJAX(url,type,data){
@@ -98,7 +110,6 @@ function GETANDDELETE_AJAX(url,type) {
         type: type,
         success: function(item) {
             if(type == "GET") {
-                console.log(item)
                 $('#id').val(item.id);
                 $('#name').val(item.name);
                 $('#whatsapp').val(item.phone);
@@ -109,6 +120,53 @@ function GETANDDELETE_AJAX(url,type) {
             } else {
                 //storage.setItem("message", "Deletado com sucesso");
                 window.location.reload();
+            }
+        }
+    });
+};
+
+// FUNÇÃO DE REQUISIÇÃO AJAX
+function POSTANDPUT_AJAX(url,type,data){
+    // Enviando os dados via AJAX
+    console.log(data)
+    $.ajax({
+        type: type,
+        url: url,
+        data: JSON.stringify(data),
+        dataType:"json",
+        contentType: 'application/json',
+        success: function(response) {
+            alert('true')
+        },
+        error: function(xhr, status, error) {
+            console.log(error,status)
+        }
+    });
+}
+
+function GETANDDELETE_AJAX(url,type) {
+    $.ajax({
+        url: url,
+        type: type,
+        dataType:"json",
+        contentType: 'application/json',
+        success: function(item) {
+            if(type == "GET") {
+                console.log(item)
+                $('#id').val(item.id);
+                $('#name').val(item.name);
+                $('#whatsapp').val(item.phone);
+                $('#telefone').val(item.phone2);
+                $('#cpf').val(item.cpf);
+                $('#cep').val(item.cep);
+                $('#opcao').append(`<option value="${item.opcao}">${item.opcao}</option>`);
+                $('#opcao').val(item.opcao).change();
+            } else {
+                Message("Deletado com sucesso","success")
+
+                setTimeout(() => {
+                    window.location.reload();
+                }, 4000);
             }
         }
     });
