@@ -25,8 +25,23 @@
         <div class="col-xl-12 col-lg-12 bst-seller">
             <div class="card h-auto">
                 <div class="card-body mode">
+                    <div class="row dashboard-principal">
 
-
+                        <div class="container-card">
+                           <h1>Atendimento Diário</h1>
+                           <span><strong>{{$atendimento_diarios}}</strong></span>
+                        </div>
+                        <div class="container-card">
+                           <h1>Atendimento Semanal</h1>
+                           <span><strong>{{$atendimento_semanal}}</strong></span>
+                        </div>
+                        <div class="container-card">
+                           <h1>Atendimento Mensal</h1>
+                           <span><strong>{{$atendimento_mensal}}</strong></span>
+                        </div>
+                    
+                    
+                    </div>
 
         </div>
             </div>
