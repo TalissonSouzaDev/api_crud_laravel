@@ -24,6 +24,8 @@ class ERSistemasCrudAPIController extends Controller
 
     public function create(Request $request)
     {
+
+        
         $data =  [
             "name" => $request->name,
             "phone" => $request->phone,
